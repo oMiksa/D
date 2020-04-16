@@ -29,14 +29,14 @@ void world::legacy() {
     for (int i = 0; i < worldX; i++) {
         for (int j = 0; j < worldY; j++) {
             if (W[i][j].getStatus() == BOT) {
+                printf("%d", k);
                 for (int q = 0;  q < MAX_CMD; q++) {
                     W[i][j].setCMD(q, W2[k].getCMD(q));
-                    
-                    //printf("%d, ", W2[k].getCMD(q));
+                    printf("%d,", W2[k].getCMD(q));
                 }
-                //printf("\n");
+                printf("\n");
                 count++;
-                if (count == 10) {
+                if (count == 8) {
                     k++;
                     count = 0;
                 }

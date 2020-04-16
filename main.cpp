@@ -80,7 +80,7 @@ void Draw() {
     
     for (int i = 0; i < 20; i++) {
         renderBitmapString(WinWid - draw_start_pos_statistic - draw_indent_from_the_edge + 2, draw_indent_from_the_edge + 15 * (1 + i) + 2, num[0][i]);
-        renderBitmapString(WinWid - draw_start_pos_statistic - draw_indent_from_the_edge + 50 + 2, draw_indent_from_the_edge + 15 * (1 + i) + 2, num[1][i]);
+        renderBitmapString(WinWid - draw_start_pos_statistic - draw_indent_from_the_edge + 65 + 2, draw_indent_from_the_edge + 15 * (1 + i) + 2, num[1][i]);
     }
 
     // sprintf(num[0][0], "%d", wrd.countBot);
