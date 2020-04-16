@@ -1,7 +1,7 @@
 all: artificialLife
 
-artificialLife: main.o world.o elements.o bot.o
-	g++ main.o world.o elements.o bot.o -o artificialLife -lglut -lGLU -lGL
+artificialLife: main.o world.o element.o
+	g++ main.o world.o element.o -o artificialLife -lglut -lGLU -lGL -lpthread
 
 main.o: main.cpp
 	g++ -c main.cpp 
@@ -9,11 +9,8 @@ main.o: main.cpp
 world.o: world.cpp
 	g++ -c world.cpp
 
-elements.o: elements.cpp
-	g++ -c elements.cpp
-
-bot.o: bot.cpp
-	g++ -c bot.cpp
+element.o: element.cpp
+	g++ -c element.cpp
 
 clean:
 	rm -rf *.o artificialLife

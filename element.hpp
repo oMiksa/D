@@ -1,21 +1,31 @@
-#ifndef BOT_HPP
-#define BOT_HPP
+#ifndef ELEMENT_HPP
+#define ELEMENT_HPP
 
-#include "elements.hpp"
 #include <time.h>
 #include <stdlib.h>
 
 #define MAX_CMD 64
 
-class bot : public elements {
+#define EMPTY 0
+#define BOT 1
+#define FOOD 2
+#define POISON 3
+#define WALL 4
+
+class element {
 private:
     int hp;
     int indexCMD;
     int cmds[MAX_CMD];
     int focus;
+    int status;
+    bool action;
 
 public:
-    void genCDM();
+    void genCDM(int c, int a = 0, int b = MAX_CMD - 1);
+    void actionON();
+    void actionOFF();
+    bool isAction();
     void indexUp();
     void indexUp(int up);
     int getCMD();
@@ -27,9 +37,12 @@ public:
     void setLife(int i);
     void upLife(int i);
     bool isLife();
-    bot();
-    bot(int st, float x, float y);
-    ~bot();
+    int getStatus();
+    void setStatus(int st);
+    
+    element();
+    element(int st);
+    ~element();
 };
 
 #endif

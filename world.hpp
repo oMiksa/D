@@ -1,24 +1,22 @@
 #ifndef WORLD_HPP
 #define WORLD_HPP
-#include "bot.hpp"
+#include "element.hpp"
 #include <stdio.h>
 
 #define worldX 64
 #define worldY 32
 
-#define EMPTY 0
-#define BOT 1
-#define FOOD 2
-#define POISON 3
-#define WALL 4
+struct cord {
+    bool fail;
+    int x;
+    int y;
+};
+
 
 class world {
 private:
-    // int countBot;
-    // int countFood;
-    // int countPoison;
-    // int countWall;
-    bot W[worldX][worldY];
+    element W[worldX][worldY];
+    element W2[10];
     
 public:
     int countBot;
@@ -26,12 +24,14 @@ public:
     int countPoison;
     int countWall;
     void run();
-    void swap(bot*a, bot*b);
-    int move(bot* b);
-    int take(bot* b);
-    bot* see(bot* b, int f = 0);
-    bot getElem(int x, int y);
+    void newGenerration();
+    void legacy();
+    void swap(cord a, cord b);
+    cord see(cord b, int focus, int cmd = 0);
+    element getElem(int x, int y);
     world(int b, int f, int p, int w);
+    void init(int b, int f, int p, int w);
+    world(int);
     ~world();
 };
 
